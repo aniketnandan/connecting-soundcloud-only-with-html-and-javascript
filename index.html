@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>soundcloud</title>
+  <script src="SC_DOMmanupulation.js"></script>
+  <script src="FB_api.js"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+
+<body onload = "authenticate()">
+  <div>
+    <div class = "header">
+      <div class = "name"></div>
+      <nav class = "links"></nav>
+    </div>
+    <div class= "contents">
+      <form class=audioDetails>
+        <input type = 'button' id = 'clear_file' value = 'Clear inputs field' onClick = 'clearField()' />
+        <p><input type = 'file' type = 'audio' id = 'audio_upload' /></p>
+        <p><input type = 'text' id = 'audio_title' placeholder = 'Enter a title for your audio' size = '40' /></p>
+
+        <p><input type = 'radio' name ="track_types" value ="private">Private
+          <input type = 'radio' name ="track_types" value ="public">Public</p>
+
+        <abbr title="share with your connections"><input type = 'button' id = 'audio_submit' value = 'Upload and share' onClick = 'uploadAndShare()'/></abbr>
+        <input type = 'button' id = 'audio_submit' value = 'Upload' onClick = 'uploadFile()'/>
+        <input type="button" id="connection" value="get your connection" onClick="getConnection()"/>
+      </form>
+      <div>
+        <span id="shareAll"></span>
+        <ul class="connection"></ul>
+      </div>
+    </div>
+    <div class="notice"></div>
+
+    <div class = "lists">
+      <span class = "Tracks_List_Name"></span>
+      <ul class="tracks"  onClick = 'playThisOne()'></ul>
+    </div>
+
+    <div class="notice"></div>
+  </div>
+  <div class = "playHere"></div>
+</body>
+</html>

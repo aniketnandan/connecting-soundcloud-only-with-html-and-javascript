@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: darkorange;
+  font-size: xx-large;
+}
+nav.links {
+  margin-right: 20px;
+}
+.name {
+  margin-left: 20px;
+}
+.contents {
+  border: 2px solid darkorange;
+  min-height: 160px;
+  min-width: 444px;
+  margin: 10px auto;
+  padding: 20px;
+}
+.lists {
+
+  width: 260px;
+  height: 239px;
+}
+ul.tracks {
+  height: 145px;
+  width: 200px;
+  overflow: auto;
+  margin-left: 8px;
+  margin-top: 30px;
+}
+span#listName {
+  margin-left: 51px;
+}
+.notice {
+  text-align: center;
+  height: 20px;
+  margin-left: 388px;
+  margin-right: 322px;
+}
