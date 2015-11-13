@@ -4,10 +4,10 @@
 
   <title>soundcloud</title>
   <script src="SC_DOMmanupulation.js"></script>
-  <script src="FB_api.js"></script>
   <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script src="./ajax.js"></script>
 
 </head>
 
@@ -45,5 +45,36 @@
     <div class="notice"></div>
   </div>
   <div class = "playHere"></div>
+
+  <audio src="./01 Bandeyaa (Jazbaa) Jubin 190Kbps.mp3" id="player"></audio>
+  <button id="play">Play</button>
+  <button id="pause">Pause</button>
+  <div style="display: inline-block; display: relative; height: 3px; background: #555; width: 100px; height: 10px" class="progress">
+    <span style="display: block; height: 100%; background-color: rgb(43,194,83)" class="bar"></span>
+  </div>
+
+  <a id="play_me" href="#play">Hit Me</a>
+  <script>
+   var a = new Audio("./01 Bandeyaa (Jazbaa) Jubin 190Kbps.mp3");
+   document.querySelector("#play").addEventListener('click',function(){
+     a.play();
+   });
+   document.querySelector('#pause').addEventListener('click', function() {
+     a.pause();
+   });
+   a.addEventListener('timeupdate', function() {
+     document.querySelector(".bar").style.width = (( this.currentTime / this.duration ) * 100 ) + "%";
+   });
+   document.querySelector("#play_me").addEventListener('click', function(){
+
+     fetch("https://api.soundcloud.com/resolve.json?url=https://soundcloud.com/user-892159913/teri-meri-kahani&client_id=065a3c93a1990a9c0aacdcc4da96ede1").then(function(track){
+       SC.get("/me/tracks/" + track.id).then(function(sound) {
+         var stream = sound.stream_url;
+         console.log("stream url",sound.stream_url);
+       })
+     });
+   })
+
+  </script>
 </body>
 </html>
