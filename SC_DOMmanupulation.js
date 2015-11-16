@@ -125,16 +125,6 @@ function uploadFile(arrayOfConnection){
   }
 }
 
-function existTrackShare(){
-  document.querySelector(".tracks").addEventListener("click",function(e){
-    console.log("hello ",e.innerHTML);
-    var spanClass = document.querySelector(".Tracks_List_Name");
-    var options = document.createElement("div");
-    options.innerHTML = " &nbsp <input type='button' value='play'/>"
-    spanClass.appendChild(options)
-  })
-}
-
 function getConnection(){
   return new Promise(function(resolve,reject){
     SC.get('me/connections').then(function(connections){
@@ -206,4 +196,8 @@ function clearField(){
   document.querySelector("div.notice").innerHTML = "";
   document.querySelector("div.playHere").innerHTML = "";
   document.querySelector(".connection").innerHTML = "";
+}
+
+function nothing(){
+  //nothing
 }
