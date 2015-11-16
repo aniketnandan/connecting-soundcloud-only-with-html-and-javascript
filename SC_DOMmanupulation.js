@@ -197,3 +197,7 @@ function clearField(){
   document.querySelector("div.playHere").innerHTML = "";
   document.querySelector(".connection").innerHTML = "";
 }
+
+function nothing(){
+  //nothing
+}
